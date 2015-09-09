@@ -182,7 +182,8 @@ void LedControl::spiTransfer(int addr, volatile byte opcode, volatile byte data)
     //Now shift out the data 
     for(int i=maxbytes;i>0;i--) {
     	  digitalWrite(SPI_CLK,LOW);
-    	  shiftOut(SPI_MOSI,SPI_CLK,MSBFIRST,spidata[i-1]);	
+    	  shiftOut(SPI_MOSI,SPI_CLK,MSBFIRST,spidata[i-1]);
+    	  delay(1);
     }
     //latch the data onto the display
     digitalWrite(SPI_CS,HIGH);
